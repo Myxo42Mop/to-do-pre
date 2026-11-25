@@ -74,7 +74,10 @@ function saveTasks(tasks) {
 
 function handleFormSubmit(event) {
 	event.preventDefault();
-	const item = inputElement.value;
+	const item = inputElement.value.trim();
+	if (!item) {
+		return;
+	}
 	listElement.prepend(createItem(item));
 	items = getTasksFromDOM();
 	saveTasks(items);
