@@ -36,5 +36,14 @@ function saveTasks(tasks) {
 
 }
 
+function handleFormSubmit(event) {
+	event.preventDefault();
+	const item = inputElement.value;
+	listElement.prepend(createItem(item));
+	inputElement.value = "";
+}
+
+formElement.addEventListener("submit", handleFormSubmit);
+
 items = loadTasks();
 items.forEach((item) => listElement.append(createItem(item)));
